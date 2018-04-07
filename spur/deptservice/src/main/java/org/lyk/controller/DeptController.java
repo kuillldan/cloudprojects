@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Objects;
+
 /**
  * Created by yuankliu on 07/04/2018.
  */
@@ -32,6 +34,12 @@ public class DeptController
     public SpringResponse<Dept> getDeptByDeptno(@RequestParam("deptno") Long deptno)
     {
         Dept dept = this.deptService.getDeptByDeptno(deptno);
+
+        if(Objects.isNull(dept))
+        {
+            throw new RuntimeException("未查到相关记录");
+        }
+
         SpringResponse<Dept> sr = new SpringResponse<>();
         sr.setStatus(SpringStatus.SUCCESS);
         sr.setMessage("查询成功");
