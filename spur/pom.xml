@@ -8,6 +8,8 @@
     <modules>
         <module>deptservice</module>
         <module>common</module>
+        <module>api</module>
+        <module>eureka</module>
     </modules>
     <packaging>pom</packaging>
 
