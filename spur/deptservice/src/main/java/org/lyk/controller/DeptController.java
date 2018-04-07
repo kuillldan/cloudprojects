@@ -1,5 +1,7 @@
 package org.lyk.controller;
 
+import org.lyk.common.SpringResponse;
+import org.lyk.common.SpringStatus;
 import org.lyk.deptservice.Dept;
 import org.lyk.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +29,13 @@ public class DeptController
     }
 
     @RequestMapping("getDeptByDeptno")
-    public Object getDeptByDeptno(@RequestParam("deptno") Long deptno)
+    public SpringResponse<Dept> getDeptByDeptno(@RequestParam("deptno") Long deptno)
     {
         Dept dept = this.deptService.getDeptByDeptno(deptno);
-        return dept;
+        SpringResponse<Dept> sr = new SpringResponse<>();
+        sr.setStatus(SpringStatus.SUCCESS);
+        sr.setMessage("查询成功");
+        sr.setRetVal(dept);
+        return sr;
     }
 }

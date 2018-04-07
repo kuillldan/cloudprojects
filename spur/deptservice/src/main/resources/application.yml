@@ -12,3 +12,7 @@ spring:
       hibernate:
         ddl-auto: update
         show-sql: true
+eureka:
+    client:
+        service-url:
+            defaultZone: http://127.0.0.1:7001/eureka

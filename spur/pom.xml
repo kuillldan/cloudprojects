@@ -9,7 +9,8 @@
         <module>deptservice</module>
         <module>common</module>
         <module>api</module>
-        <module>eureka</module>
+        <module>eurekacenter</module>
+        <module>web</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -26,7 +27,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Dalston.SR5</version>
+                <version>Dalston.SR1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -34,7 +35,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.0.1.RELEASE</version>
+                <version>1.5.4.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
