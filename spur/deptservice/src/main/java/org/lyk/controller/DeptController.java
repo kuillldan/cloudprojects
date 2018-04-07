@@ -3,13 +3,11 @@ package org.lyk.controller;
 import org.lyk.common.SpringResponse;
 import org.lyk.common.SpringStatus;
 import org.lyk.deptservice.Dept;
+import org.lyk.deptservice.feign.DeptFeignClient;
 import org.lyk.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 
@@ -18,19 +16,17 @@ import java.util.Objects;
  */
 @RestController
 @RequestMapping("/DeptController/")
-public class DeptController
+public class DeptController implements DeptFeignClient
 {
     @Autowired
     private DeptService deptService;
 
-    @RequestMapping("sayHello")
-    @ResponseBody
-    public Object sayHello(String msg)
+    private Object sayHello(String msg)
     {
         return "ehcho:" + msg.toUpperCase();
     }
 
-    @RequestMapping("getDeptByDeptno")
+    @RequestMapping(value = DEPTCONTROLLER + "getDeptByDeptno",method = RequestMethod.GET)
     public SpringResponse<Dept> getDeptByDeptno(@RequestParam("deptno") Long deptno)
     {
         Dept dept = this.deptService.getDeptByDeptno(deptno);
