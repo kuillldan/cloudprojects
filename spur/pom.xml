@@ -11,6 +11,7 @@
         <module>api</module>
         <module>eurekacenter</module>
         <module>web</module>
+        <module>zull</module>
     </modules>
     <packaging>pom</packaging>
 

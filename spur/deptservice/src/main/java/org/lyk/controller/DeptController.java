@@ -15,16 +15,10 @@ import java.util.Objects;
  * Created by yuankliu on 07/04/2018.
  */
 @RestController
-@RequestMapping("/DeptController/")
+@RequestMapping
 public class DeptController implements DeptFeignClient
-{
-    @Autowired
+{    @Autowired
     private DeptService deptService;
-
-    private Object sayHello(String msg)
-    {
-        return "ehcho:" + msg.toUpperCase();
-    }
 
     @RequestMapping(value = DEPTCONTROLLER + "getDeptByDeptno",method = RequestMethod.GET)
     public SpringResponse<Dept> getDeptByDeptno(@RequestParam("deptno") Long deptno)
@@ -42,4 +36,5 @@ public class DeptController implements DeptFeignClient
         sr.setRetVal(dept);
         return sr;
     }
+
 }
