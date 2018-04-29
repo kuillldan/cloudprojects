@@ -1,0 +1,14 @@
+server:
+    port: 9501
+spring:
+    application:
+        name: zuul
+eureka:
+    client:
+        service-url:
+            defaultZone: http://127.0.0.1:7001/eureka
+zuul:
+    prefix: /spur-project
+    ignored-services: deptservice
+    routes:
+        deptservice: /dept-proxy/**
