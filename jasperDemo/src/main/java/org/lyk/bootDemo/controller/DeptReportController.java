@@ -37,6 +37,7 @@ public class DeptReportController
         modelMap.put(DATASOURCE, jrDataSource);
         modelMap.put(FILE_FORMAT, format);
         modelAndView = new ModelAndView(reportName, modelMap);
+        modelAndView.addObject("user_name","huanhuan");
         return modelAndView;
     }
 }
