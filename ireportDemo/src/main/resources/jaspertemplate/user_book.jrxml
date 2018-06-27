@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="chart_demo_report" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="42c61e2d-82e3-43a1-a88b-0f0d96d56e59">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <style name="column_header" mode="Opaque" forecolor="#FFFFFF" backcolor="#006666" hAlign="Center" vAlign="Middle" fontName="华文宋体" fontSize="16" isBold="true"/>
+    <style name="tr">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2==0]]></conditionExpression>
+            <style mode="Opaque" forecolor="#000000" backcolor="#575656" hAlign="Center" vAlign="Middle" fontName="华文宋体"/>
+        </conditionalStyle>
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2==1]]></conditionExpression>
+            <style mode="Opaque" backcolor="#B9B4B4" hAlign="Center" vAlign="Middle" fontName="华文宋体"/>
+        </conditionalStyle>
+    </style>
+    <field name="userName" class="java.lang.String"/>
+    <field name="amount" class="java.lang.Long"/>
+    <title>
+        <band height="79" splitType="Stretch"/>
+    </title>
+    <columnHeader>
+        <band height="44" splitType="Stretch">
+            <staticText>
+                <reportElement uuid="a3e89d07-82f3-4273-93b1-ec3cba00fe58" style="column_header" x="85" y="0" width="186" height="44" forecolor="#FFFFFF"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement/>
+                <text><![CDATA[用户名]]></text>
+            </staticText>
+            <staticText>
+                <reportElement uuid="c8cd111e-282a-4747-9134-0eef627563dd" style="column_header" x="271" y="0" width="186" height="44"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement/>
+                <text><![CDATA[总数]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="40" splitType="Stretch">
+            <textField>
+                <reportElement uuid="af6001a6-e5fa-48f0-8159-25db90403004" style="tr" x="271" y="0" width="186" height="40"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement>
+                    <font fontName="华文宋体"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement uuid="2b8d3946-8459-4230-843e-70937399b080" style="tr" x="85" y="0" width="186" height="40"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement>
+                    <font fontName="华文宋体"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{userName}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <summary>
+        <band height="300" splitType="Stretch">
+            <pieChart>
+                <chart>
+                    <reportElement uuid="67e1ea7c-c2d8-4043-9d4d-5d2828eaf3e9" x="111" y="37" width="294" height="209"/>
+                    <chartTitle/>
+                    <chartSubtitle/>
+                    <chartLegend/>
+                </chart>
+                <pieDataset>
+                    <keyExpression><![CDATA[$F{userName}]]></keyExpression>
+                    <valueExpression><![CDATA[$F{amount}]]></valueExpression>
+                </pieDataset>
+                <piePlot>
+                    <plot/>
+                    <itemLabel/>
+                </piePlot>
+            </pieChart>
+        </band>
+    </summary>
+</jasperReport>
+

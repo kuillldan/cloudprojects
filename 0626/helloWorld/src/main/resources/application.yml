@@ -1,0 +1,23 @@
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/test?useunicode=true&characterencoding=utf-8&usessl=true&servertimezone=utc
+        username: root
+        password: admin
+    jpa:
+      hibernate:
+        ddl-auto: update
+        show-sql: true
+    thymeleaf:
+      cache: false
+    redis:
+      database: 0
+      host: 192.168.91.128
+      port: 6379
+      password: 123
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+        timeout: 10000

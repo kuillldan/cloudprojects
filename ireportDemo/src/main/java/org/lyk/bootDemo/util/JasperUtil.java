@@ -21,6 +21,14 @@ import java.util.HashMap;
  */
 public class JasperUtil
 {
+    /**
+     * 将生成的报表以pdf的方式提供给前端
+     * @param response
+     * @param jrxmlPath
+     * @param parameters
+     * @param dataSource
+     * @throws Exception
+     */
     public static void downloadAsPdf(HttpServletResponse response,
                                      String jrxmlPath, HashMap<String, Object> parameters,
                                      JRRewindableDataSource dataSource) throws Exception

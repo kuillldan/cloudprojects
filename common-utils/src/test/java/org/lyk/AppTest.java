@@ -15,6 +15,12 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertTrue( true );
+        Double base = 40.0D;
+        Double p = 1.05D;
+        for(int i = 1; i <= 100; i++)
+        {
+            base *= p;
+            System.out.println(i + ":" + base);
+        }
     }
 }
