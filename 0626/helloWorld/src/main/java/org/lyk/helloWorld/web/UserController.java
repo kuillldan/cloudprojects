@@ -23,7 +23,7 @@ public class UserController
 
     @RequestMapping("getUser")
     @ResponseBody
-    @Cacheable(value = "usersCache")
+//    @Cacheable(value = "usersCache")
     public User getUser(String userName)
     {
         System.out.println("查询数据库,userName=" + userName);
@@ -32,7 +32,7 @@ public class UserController
 
     @RequestMapping("saveUser")
     @ResponseBody
-    @CachePut(value = "usersCache",key = "#user.userName")
+//    @CachePut(value = "usersCache",key = "#user.userName")
     public User saveUser(User user)
     {
         System.out.println("执行数据库更新操作");
@@ -42,10 +42,9 @@ public class UserController
 
     @RequestMapping("deleteUser")
     @ResponseBody
-    @CacheEvict(value = "usersCache")
+//    @CacheEvict(value = "usersCache")
     public void deleteUser(String userName)
     {
         System.out.println("执行数据库删除操作,userName=" + userName);
-        this.userRepository.delete(5L);
     }
 }

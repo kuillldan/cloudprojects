@@ -35,12 +35,12 @@ public class RedisConfig extends CachingConfigurerSupport
         };
     }
 
-    @Bean
-    public CacheManager getCacheManager(RedisTemplate redisTemplate)
-    {
-        RedisCacheManager rcm = new RedisCacheManager(redisTemplate);
-        //设置缓存过期时间
-        //rcm.setDefaultExpiration(60);//秒
-        return rcm;
-    }
+//    @Bean
+//    public CacheManager getCacheManager(RedisTemplate redisTemplate)
+//    {
+////        RedisCacheManager rcm = new RedisCacheManager(redisTemplate);
+//        //设置缓存过期时间
+//        //rcm.setDefaultExpiration(60);//秒
+////        return rcm;
+//    }
 }

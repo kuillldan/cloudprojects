@@ -14,7 +14,7 @@ public class CacheController
 {
     @ResponseBody
     @RequestMapping("hello")
-    @Cacheable(value = "helloCache")
+//    @Cacheable(value = "helloCache")
     public String hello(String name)
     {
         System.out.println("没有走缓存");
